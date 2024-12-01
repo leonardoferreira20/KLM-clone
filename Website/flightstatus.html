@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KLM Royal Dutch Airlines - Acompanhar horários de partida e chegada - KLM Portugal</title>
+    <link rel="icon" type="image/x-icon" href="https://www.crwflags.com/fotw/images/n/nl$klm61b.gif">
+    <link rel="stylesheet" href="estilos.css">
+    <script src="logica.js"></script>
+</head>
+<body>
+    <div>
+        <!-- HEADER -->
+        <header id="header" class="header flight-status-header">
+            <div>
+                <div class="header-sidenav-container">
+                    <button class="header-sidenav-btn-menu"></button>
+                </div>
+                <div class="header-logo-container">
+                    <img id="header-logo-icon" class="header-logo-icon" src="https://www.static-kl.com/assets/components/38.0.0/kl/logo/kl-logo.svg" alt="logo"/>
+                </div>
+
+                <div>
+                    <button class="header-actions-search-btn">
+                        <span><img src="img/magnifying-glass.png" alt="search"></span>
+                    </button>
+                </div>
+
+                <div>
+                    <button class="header-actions-language-btn">
+                        <span><img class="language-btn-flag-icon" src="img/flag.png" alt="flag"></span>
+                        <span class="language-btn-flag-text">Portugal - PT</span>
+                    </button>
+                </div>
+                <button class="header-actions-login-btn">
+                    <span><img class="login-btn-user-icon" src="img/user.png" alt="user"></span>
+                    <span class="login-btn-user-text">Inscrever-se</span>
+                </button>
+            </div>
+
+            <!-- Sidebar -->
+            <div id="sidebar" class="sidebar">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">Check-in</a></li>
+                    <li><a href="#">A Minha Viagem</a></li>
+                    <li><a href="#">Informações</a></li>
+                    <li class="active"><a href="flightstatus.html">Estado do Voo</a></li>
+                </ul>
+            </div>
+
+            <div id="overlay" class="overlay"></div>
+
+            <h1 class="title-flight-status">Estado do voo</h1>
+        </header>
+        <!-- /HEADER -->
+    </div>
+
+    <main class="main-container-flight-status">
+        <!-- <section class="flight-status-section">
+            <div class="home-special-offers-card-content">
+                <h2 class="home-special-offers-card-description-title-content">Pesquisar um voo</h2>
+            </div>
+        
+            <form action="#" class="flight-status-form">
+                <div class="form-row">
+                    <label for="departure-date" class="flight-status-labels">Data de partida</label>
+                    <input type="date" id="departure-date" name="departure-date">
+                </div>
+        
+                <div class="form-row-inline">
+                    <div class="form-group">
+                        <label for="departure-location" class="flight-status-labels">Com partida de</label>
+                        <input type="text" id="departure-location" name="departure-location" value="Lisboa">
+                    </div>
+        
+                    <div class="arrow-icon">
+                        <img src="img/transfer.png" alt="arrows" class="arrow-image" onclick="swapLocations()">
+                    </div>
+        
+                    <div class="form-group">
+                        <label for="arrival-location" class="flight-status-labels">Com destino a</label>
+                        <input type="text" id="arrival-location" name="arrival-location">
+                    </div>
+        
+                    <span class="flight-status-labels">ou</span>
+        
+                    <div class="form-group">
+                        <label for="flight-number" class="flight-status-labels">Número de voo</label>
+                        <input type="text" id="flight-number" name="flight-number" >
+                    </div>
+                </div>
+        
+                <div class="search-flights">
+                    <button type="button" class="search-flights-btn" onclick="generateFlights()">Pesquisar voos
+                        <img src="img/magnifying-glass-white.png" alt="magnifying-glass" class="search-magnifying-glass-icon">
+                    </button>
+                </div>
+            </form>
+        </section> -->
+        
+        
+        
+        <!-- SEARCH FLIGHT STATUS -->
+         
+        <section class="flight-status-section">
+            <div class="home-special-offers-card-content">
+                <h2 class="home-special-offers-card-description-title-content">Pesquisar um voo</h2>
+            </div>
+
+            <form action="#" class="flight-status-form">
+                <!-- <div class="form-row">
+                    <label for="departure-date" class="flight-status-labels">Data de partida</label>
+                    <input type="date" id="departure-date" name="departure-date" required>
+                </div>
+
+                <div class="form-row-inline">
+                    <div class="form-group">
+                        <label for="departure-location" class="flight-status-labels">Com partida de</label>
+                        <input type="text" id="departure-location" name="departure-location" required>
+                    </div>
+
+                    <div class="arrow-icon">
+                        <img src="img/transfer.png" alt="arrows" class="arrow-image">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="arrival-location" class="flight-status-labels">Com destino a</label>
+                        <input type="text" id="arrival-location" name="arrival-location" required>
+                    </div>
+                    
+                    
+                    <span class="flight-status-labels">ou</span>
+
+                    <div class="form-group">
+                        <label for="flight-number" class="flight-status-labels">Número de voo</label>
+                        <input type="text" id="flight-number" name="flight-number" >
+                    </div>
+                </div> -->
+
+                <div class="form-row-inline">
+                    <div class="form-group">
+                        <label for="departure-date" class="flight-status-labels">Data de partida</label>
+                        <input type="date" id="departure-date" name="departure-date" required>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="flight-number" class="flight-status-labels">Tipo de voo</label>
+                        <select id="flight-type" name="flight-type" required>
+                            <option value="ida" selected>Voo de ida</option>
+                            <option value="regresso">Voo de regresso</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="aeroport-location" class="flight-status-labels">Aeroporto</label>
+                        <input type="text" id="aeroport-location" name="aeroport-location" required>
+                    </div>
+                    
+                    
+                    
+                </div>
+                <div class="search-flights">
+                    <button class="search-flights-btn" type="button">Pesquisar voos
+                    <img src="img/magnifying-glass-white.png" alt="magnifying-glass" class="search-magnifying-glass-icon">
+                    </button>
+                </div>
+            </form>
+        </section>
+        <!-- /VOO -->
+
+        <!-- SAVE FLIGHTS -->
+        <section class="flight-status-search-save-flight">
+            <div class="flight-status-search-save-flight-card">
+                <div class="flight-status-search-save-flight-content">
+                    <div class="flight-status-search-save-flight-container">
+                        <div class="flight-status-search-save-flight-description-content">
+                            <h2 class="flight-status-search-save-flight-description-title-content">Pesquisar um voo</h2>
+                        </div>
+                        <button class="flight-status-search-save-flight-saved-btn">Guardado (0/6)</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- FIM SAVE FLIGHTS -->
+
+        <!--SHOW STATUS-->
+        <div class="flight-info-wrapper">
+            <div class="flight-info-section">
+
+                <!-- Primeiro voo -->
+                <div class="flight-info-card">
+                    <div class="flights-info-card-grid-container">
+                        <div class="logo-container">
+                          <img src="img/logoklm.png" alt="KLM Cityhopper">
+                        </div>
+                        <div class="status-container">
+                          <span id="flight-status1" class="flight-status"></span>
+                        </div>
+                        <div class="flight-number-container">
+                          <h3 id="flight-number1"></h3>
+                        </div>
+                        <div class="flight-departure">
+                          <div id="flight-hour1" class="departure"></div>
+                        </div>
+                        <div class="grid-item"></div>
+                        <div class="flight-arrival">
+                          <div id="arrival1" class="arrival"></div>
+                        </div>
+                        <div class="flight-origin">
+                          <p id="origin1" class="origin"></p>
+                        </div>
+                        <div class="flight-duration">
+                            <span class="durationLabel">Duração </span>
+                            <span id="duration1" class="duration"></span>
+                        </div>
+                        <div class="flight-destination">
+                          <p id="destination1" class="destination"></p>
+                        </div>
+                      </div>
+                      
+                    <div class="more-options-container">
+                        <button class="more-options-save-btn">Guardar</button>
+                        <button class="more-options-show-more-btn">Mostrar mais</button>
+                    </div>
+                </div>
+                
+        
+                <!-- Segundo voo -->
+                <div class="flight-info-card">
+                    <div class="flights-info-card-grid-container">
+                        <div class="logo-container">
+                          <img src="img/logoklm.png" alt="KLM Cityhopper">
+                        </div>
+                        <div class="status-container">
+                          <span id="flight-status2" class="flight-status"></span>
+                        </div>
+                        <div class="flight-number-container">
+                          <h3 id="flight-number2"></h3>
+                        </div>
+                        <div class="flight-departure">
+                          <div id="flight-hour2" class="departure"></div>
+                        </div>
+                        <div class="grid-item"></div>
+                        <div class="flight-arrival">
+                          <div id="arrival2" class="arrival"></div>
+                        </div>
+                        <div class="flight-origin">
+                          <p id="origin2" class="origin"></p>
+                        </div>
+                        <div class="flight-duration">
+                            <span class="durationLabel">Duração </span>
+                            <span id="duration2" class="duration"></span>
+                        </div>
+                        <div class="flight-destination">
+                          <p id="destination2" class="destination"></p>
+                        </div>
+                      </div>
+                      
+                    <div class="more-options-container">
+                        <button class="more-options-save-btn">Guardar</button>
+                        <button class="more-options-show-more-btn">Mostrar mais</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    
+    <!--FIM SHOW STATUS-->
+
+    </main>
+
+    <footer>
+        <div class="home-footer-container">
+            <div class="home-footer-container-content">
+                <!-- CONTACTE-NOS -->
+                <div class="home-footer-content-nav">
+                    <div id="home-footer-content-nav-list">
+                        <div class="home-footer-content-nav-list-title">
+                            <h4>Contacte-nos</h4>
+                        </div>
+                        <div class="home-footer-content-nav-list-content">
+                            <ul>
+                                <li>
+                                    <a href="/" class="home-footer-content-nav-list-content-item">
+                                        <img src="img/faq.png" alt="Contactos" class="home-footer-content-nav-list-content-item-icon">
+                                        <span>Todas as opções de contato</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/" class="home-footer-content-nav-list-content-item">
+                                        <span>Reembolso</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/" class="home-footer-content-nav-list-content-item">
+                                        <span>Reclamações</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/" class="home-footer-content-nav-list-content-item">
+                                        <span>Passageiros com deficiência</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/" class="home-footer-content-nav-list-content-item">
+                                        <span>Solicitar uma fatura</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- SOBRE A KLM -->
+                <div class="home-footer-content-nav">
+                    <div id="home-footer-content-nav-list">
+                        <div class="home-footer-content-nav-list-title">
+                            <h4>Sobre a KLM</h4>
+                        </div>
+                        <div class="home-footer-content-nav-list-content">
+                            <ul>
+                                <li>
+                                    <a href="/" class="home-footer-content-nav-list-content-item">
+                                        <span>Empresa</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/" class="home-footer-content-nav-list-content-item">
+                                        <span>Imprensa</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/" class="home-footer-content-nav-list-content-item">
+                                        <span>Sustentabilidade</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/" class="home-footer-content-nav-list-content-item">
+                                        <span>Carreiras</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/" class="home-footer-content-nav-list-content-item">
+                                        <span>Parceiros</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/" class="home-footer-content-nav-list-content-item">
+                                        <span>Afiliar-se</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- OFERTAS -->
+                <div class="home-footer-content-nav">
+                    <div id="home-footer-content-nav-list">
+                        <div class="home-footer-content-nav-list-title">
+                            <h4>Ofertas</h4>
+                        </div>
+                        <div class="home-footer-content-nav-list-content">
+                            <ul>
+                                <li>
+                                    <a href="/" class="home-footer-content-nav-list-content-item">
+                                        <span>Todas as ofertas</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/" class="home-footer-content-nav-list-content-item">
+                                        <span>Descontos Flying Blue</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- MAIS SOBRE A KLM -->
+                <div class="home-footer-content-nav">
+                    <div id="home-footer-content-nav-list">
+                        <div class="home-footer-content-nav-list-title">
+                            <h4>Mais sobre KLM</h4>
+                        </div>
+                        <div class="home-footer-content-nav-list-content">
+                            <ul>
+                                <li>
+                                    <a href="/" class="home-footer-content-nav-list-content-item">
+                                        <span>Newsletter</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/" class="home-footer-content-nav-list-content-item">
+                                        <span>Por que razão deve escolher a KLM</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/" class="home-footer-content-nav-list-content-item">
+                                        <span>Casas Delft Blue da KLM</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- DESCARREGAR A APP -->
+                <div class="home-footer-content-nav">
+                    <div id="home-footer-content-nav-list">
+                        <div class="home-footer-content-nav-list-title">
+                            <h4>Descarregar a app</h4>
+                        </div>
+                        <div class="home-footer-content-nav-list-content">
+                            <ul>
+                                <li>
+                                    <img src="https://img.static-kl.com/transform/f868db2b-5184-4c75-bea0-4eefa8d4fce7/" alt="Download in App Store" class="home-footer-content-nav-list-image">
+                                </li>
+                                <li>
+                                    <img src="https://img.static-kl.com/transform/41c60286-015d-42d5-b7f0-df39e9dc4b19/" alt="Download in Google Play" class="home-footer-content-nav-list-image">
+                                </li>
+                                
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- WEBSITES RELACIONADOS -->
+                <div class="home-footer-content-nav">
+                    <div id="home-footer-content-nav-list">
+                        <div class="home-footer-content-nav-list-title">
+                            <h4>Websites relacionados</h4>
+                        </div>
+                        <div class="home-footer-content-nav-list-content">
+                            <ul>
+                                <li>
+                                    <a href="/" class="home-footer-content-nav-list-content-item">
+                                        <span>airfrance.com</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/" class="home-footer-content-nav-list-content-item">
+                                        <span>airfrance.com</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/" class="home-footer-content-nav-list-content-item">
+                                        <span>airfranceklm.com</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/" class="home-footer-content-nav-list-content-item">
+                                        <span>skyteam.com</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/" class="home-footer-content-nav-list-content-item">
+                                        <span>flyingblue.com</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/" class="home-footer-content-nav-list-content-item">
+                                        <span>Inglês</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- GUIAS DE VIAGEM -->
+                <div class="home-footer-content-nav">
+                    <div id="home-footer-content-nav-list">
+                        <div class="home-footer-content-nav-list-title">
+                            <h4>Guias de viagem</h4>
+                        </div>
+                        <div class="home-footer-content-nav-list-content">
+                            <ul>
+                                <li>
+                                    <a href="/" class="home-footer-content-nav-list-content-item">
+                                        <span>Amesterdão</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/" class="home-footer-content-nav-list-content-item">
+                                        <span>Banguecoque</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/" class="home-footer-content-nav-list-content-item">
+                                        <span>Beijing</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/" class="home-footer-content-nav-list-content-item">
+                                        <span>Deli</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/" class="home-footer-content-nav-list-content-item">
+                                        <span>Dempasar-Bali</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/" class="home-footer-content-nav-list-content-item">
+                                        <span>Gotemburgo</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/" class="home-footer-content-nav-list-content-item">
+                                        <span>Hong Kong</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/" class="home-footer-content-nav-list-content-item">
+                                        <span>Nova Iorque</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/" class="home-footer-content-nav-list-content-item">
+                                        <span>Xangai</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/" class="home-footer-content-nav-list-content-item">
+                                        <span>Mais guias de viagem</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- TOP DESTINOS -->
+                <div class="home-footer-content-nav">
+                    <div id="home-footer-content-nav-list">
+                        <div class="home-footer-content-nav-list-title">
+                            <h4>Top destinos</h4>
+                        </div>
+                        <div class="home-footer-content-nav-list-content">
+                            <ul>
+                                <li>
+                                    <a href="/" class="home-footer-content-nav-list-content-item">
+                                        <span>Amesterdão</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/" class="home-footer-content-nav-list-content-item">
+                                        <span>Berlim</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/" class="home-footer-content-nav-list-content-item">
+                                        <span>Billund</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/" class="home-footer-content-nav-list-content-item">
+                                        <span>Copenhaga</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/" class="home-footer-content-nav-list-content-item">
+                                        <span>Gotemburgo</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/" class="home-footer-content-nav-list-content-item">
+                                        <span>Helsínquia</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/" class="home-footer-content-nav-list-content-item">
+                                        <span>Nova Iorque</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/" class="home-footer-content-nav-list-content-item">
+                                        <span>Oslo</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/" class="home-footer-content-nav-list-content-item">
+                                        <span>Estocolmo</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/" class="home-footer-content-nav-list-content-item">
+                                        <span>Mais voos</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- PAÍSES MAIS PROCURADOS -->
+                <div class="home-footer-content-nav">
+                    <div id="home-footer-content-nav-list">
+                        <div class="home-footer-content-nav-list-title">
+                            <h4>Países mais procurados</h4>
+                        </div>
+                        <div class="home-footer-content-nav-list-content">
+                            <ul>
+                                <li>
+                                    <a href="/" class="home-footer-content-nav-list-content-item">
+                                        <span>China</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/" class="home-footer-content-nav-list-content-item">
+                                        <span>Dinamarca</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/" class="home-footer-content-nav-list-content-item">
+                                        <span>Finlândia</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/" class="home-footer-content-nav-list-content-item">
+                                        <span>Alemanha</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/" class="home-footer-content-nav-list-content-item">
+                                        <span>Holanda</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/" class="home-footer-content-nav-list-content-item">
+                                        <span>Noruega</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/" class="home-footer-content-nav-list-content-item">
+                                        <span>Suécia</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/" class="home-footer-content-nav-list-content-item">
+                                        <span>Reino Unido</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/" class="home-footer-content-nav-list-content-item">
+                                        <span>Estados Unidos da América</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                    
+            </div>
+
+            <div class="home-footer-container-legal">
+                <div class="home-footer-container-legal-content">
+                    <ul>
+                        <li><a href="#">Informações legais</a></li>
+                        <span>|</span>
+                        <li><a href="#">Declaração de privacidade</a></li>
+                        <span>|</span>
+                        <li><a href="#">Declaração de acessibilidade</a></li>
+                        <span>|</span>
+                        <li><a href="#">Livro de reclamações</a></li>
+                        <span>|</span>
+                        <li>© 2024 KLM</li>
+                        <span>|</span>
+                        <li><a href="#">Definição de cookies</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+    </footer>
+</body>
+</html>

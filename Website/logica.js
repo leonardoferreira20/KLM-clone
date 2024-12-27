@@ -1,28 +1,25 @@
+var formShowMoreBtn = document.getElementById('showMoreBtn');
+var searchContainer = document.getElementById("flyContainerSearchBox");
+var header = document.getElementById("header");
+var menuButton = document.querySelector('.header-sidenav-btn-menu');
+var sidebar = document.getElementById("sidebar");
+var overlay = document.getElementById("overlay");
+var sidebarCloseBtn = document.getElementById("sidebarCloseBtn");
 
-document.addEventListener("DOMContentLoaded", function () {
-    let sidebar = document.getElementById("sidebar");
-    let overlay = document.getElementById("overlay");
-    let menuButton = document.querySelector('.header-sidenav-btn-menu');
+// OPEN SIDEBAR FUNCTION
+function openSidebar(){
+    sidebar.classList.add("open");
+    overlay.classList.add("open");
+}
+menuButton.addEventListener('click', openSidebar)
 
-    // Abre o sidebar
-    menuButton.onclick = function () {
-        sidebar.classList.add("open");
-        overlay.classList.add("open"); // Mostra o overlay
-    };
-
-    // Fecha o sidebar
-    overlay.onclick = function () {
-        sidebar.classList.remove("open");
-        overlay.classList.remove("open"); // retira o overlay
-    };
-});
-
-// document.addEventListener("DOMContentLoaded", function () {
-//     let arrowIcon = document.querySelector('.arrow-image');
-//     arrowIcon.addEventListener('click', swapLocations);
-// });
-
-
+// CLOSE SIDEBAR FUNCTION
+function closeSidebar(){
+    sidebar.classList.remove("open");
+    overlay.classList.remove("open");
+}
+overlay.addEventListener('click', closeSidebar)
+sidebarCloseBtn.addEventListener('click', closeSidebar)
 
 // Função data atual
 function setTodayDate() {
@@ -46,16 +43,6 @@ function setTodayDate() {
     dateInput.setAttribute('placeholder', formattedDate);
 }
 window.onload = setTodayDate;
-
-
-// function swapLocations() {
-//     let departureInput = document.getElementById('departure-location');
-//     let arrivalInput = document.getElementById('arrival-location');
-//     let temp = departureInput.value;
-
-//     departureInput.value = arrivalInput.value;
-//     arrivalInput.value = temp;
-// }
 
 document.addEventListener("DOMContentLoaded", function () {
     let searchButton = document.querySelector(".search-flights-btn");
@@ -128,6 +115,22 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+// EXPAND SEARCH BOX FORM
+formShowMoreBtn.addEventListener('click', function(){
+    searchContainer.style.height = '260px';
+    formShowMoreBtn.style.display = 'none';
+});
 
+// SCROLL EFFECT
+var previousScrollPosition = window.scrollY;
+window.onscroll = function() {
+    var currentScrollPosition = window.scrollY;
 
+    if ( previousScrollPosition > currentScrollPosition ){
+        header.style.top = "0";
+    }else {
+        header.style.top = "-56px";
+    }
 
+    previousScrollPosition = currentScrollPosition;
+}

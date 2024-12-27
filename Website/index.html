@@ -6,150 +6,232 @@
     <title>KLM Royal Dutch Airlines - Reserve voos online - KLM Portugal</title>
     <link rel="icon" type="image/x-icon" href="https://www.crwflags.com/fotw/images/n/nl$klm61b.gif">
     <link rel="stylesheet" href="estilos.css">
-    <script src="logica.js"></script>
 </head>
 <body>
     <div>
-        
         <!-- HEADER -->
         <header id="header" class="header">
-            <div>
-                <div class="header-sidenav-container">
-                    <button class="header-sidenav-btn-menu"></button>
+            <div class="header-logo" id="headerLogo">
+                <div class="header-logo-large">
+                    <div>
+                        <div class="header-sidenav-container">
+                            <button class="header-sidenav-btn-menu"></button>
+                        </div>
+                        <div class="header-logo-container">
+                            <img id="header-logo-icon" class="header-logo-icon" src="https://www.static-kl.com/assets/components/38.0.0/kl/logo/kl-logo.svg" alt="logo"/>
+                        </div>
+                        <div>
+                            <button class="header-actions-search-btn">
+                                <span><img src="img/magnifying-glass.png" alt="search"></span>
+                            </button>
+                        </div>
+                        <div>
+                            <button class="header-actions-language-btn">
+                                <span><img class="language-btn-flag-icon" src="img/flag.png" alt="flag"></span>
+                                <span class="language-btn-flag-text">Portugal - PT</span>
+                            </button>
+                        </div>
+                        <button class="header-actions-login-btn">
+                            <span><img class="login-btn-user-icon" src="img/user.png" alt="user"></span>
+                            <span class="login-btn-user-text">efetuar login</span>
+                        </button>
+                    </div>
                 </div>
-                <div class="header-logo-container">
-                    <img id="header-logo-icon" class="header-logo-icon" src="https://www.static-kl.com/assets/components/38.0.0/kl/logo/kl-logo.svg" alt="logo"/>
-                </div>
-
-                <div>
-                    <button class="header-actions-search-btn">
-                        <span><img src="img/magnifying-glass.png" alt="search"></span>
-                    </button>
-                </div>
-
-                <div>
-                    <button class="header-actions-language-btn">
-                        <span><img class="language-btn-flag-icon" src="img/flag.png" alt="flag"></span>
-                        <span class="language-btn-flag-text">Portugal - PT</span>
-                    </button>
-                </div>
-                <button class="header-actions-login-btn">
-                    <span><img class="login-btn-user-icon" src="img/user.png" alt="user"></span>
-                    <span class="login-btn-user-text">efetuar login</span>
-                </button>
             </div>
-
-            <div id="overlay" class="overlay"></div>
-            <!-- Sidebar -->
-            <div id="sidebar" class="sidebar">
-                <ul>
-                    <li class="active"><a href="index.html">Home</a></li>
-                    <li><a href="#">Check-in</a></li>
-                    <li><a href="#">A Minha Viagem</a></li>
-                    <li><a href="#">Informações</a></li>
-                    <li><a href="flightstatus.html">Estado do Voo</a></li>
-                </ul>
-            </div>
-
-            
             
             <!-- NAVBAR -->
-            <nav class="navbar">
-                <ul class="navbar-ul">
-                    <li class="navbar-ul-li">
-                        <a href="index.html">
-                            <button class="navbar-btn-home active">Home</button>
-                        </a>
-                    <li class="navbar-ul-li"><button class="navbar-btn-myTrip">A Minha Viagem</button></li>
-                    <li class="navbar-ul-li"><button class="navbar-btn-checkIn">Check-in</button></li>
-                    <li class="navbar-ul-li"><button class="navbar-btn-information">Informações</button></li>
-                    <li class="navbar-ul-li">
-                        <a href="flightstatus.html">
-                            <button class="navbar-btn-flightStatus">Estado do voo</button>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
+            <div class="header-logo-large">
+                <nav id="navbar" class="navbar">
+                    <ul class="navbar-ul">
+                        <li class="navbar-ul-li">
+                            <a href="index.html">
+                                <button class="navbar-btn-home active">Home</button>
+                            </a>
+                        <li class="navbar-ul-li"><button class="navbar-btn-myTrip">A Minha Viagem</button></li>
+                        <li class="navbar-ul-li"><button class="navbar-btn-checkIn">Check-in</button></li>
+                        <li class="navbar-ul-li"><button class="navbar-btn-information">Informações</button></li>
+                        <!-- <li class="navbar-ul-li">
+                            <a href="flightstatus.html">
+                                <button class="navbar-btn-flightStatus">Estado do voo</button>
+                            </a>
+                        </li> -->
+                    </ul>
+                </nav>
+            </div>
             <!-- /NAVBAR -->
+
+            <!-- SIDEBAR -->
+            <!-- This overlay is to make the background darker -->
+            <div id="overlay" class="overlay"></div>
+
+            <div id="sidebar" class="sidebar">
+                <!-- CLOSE BUTTON -->
+                <div class="sidebar-close-btn-container">
+                    <button id="sidebarCloseBtn" class="sidebar-close-btn">
+                        <img src="./img/close.png" alt="" class="sidebar-close-btn-icon">
+                    </button>
+                </div>
+                <!-- /CLOSE BUTTON -->
+
+                <!-- OPTIONS -->
+                <ul class="sidebar-list">
+                    <li class="sidebar-list-item active"><a href="index.html">Home</a></li>
+                    <li class="sidebar-list-item"><a href="#">Check-in</a></li>
+                    <li class="sidebar-list-item"><a href="#">A Minha Viagem</a></li>
+                    <li class="sidebar-list-item"><a href="#">Informações</a></li>
+                </ul>
+                <!-- /OPTIONS -->
+
+                <!-- DIVIDER -->
+                <div class="sidebar-divider"></div>
+                <!-- /DIVIDER -->
+
+                <!-- LANGUAGE -->
+                <div class="sidebar-language">
+                    <button class="sidebar-language-btn">
+                        <img class="sidebar-language-btn-flag-icon" src="img/flag.png" alt="flag">
+                        <span class="sidebar-language-btn-flag-text">Portugal - PT</span>
+                    </button>
+                </div>
+                <!-- /LANGUAGE -->
+
+            </div>
+            <!-- /SIDEBAR -->
         </header>
         <!-- /HEADER -->
     </div>
 
     <main class="main-container">
         <!-- FLY CONTAINER -->
-        <section class="wrapper-fly-container">
-            <div class="fly-container">
-                <div class="fly-container-search">
-                    <div class="fly-container-search-tabs">
-                        <div class="search-tabs-btns">
-                            <div class="tab-btn-reserve-fly">
-                                <img src="img/black-plane_active.png" alt="airplaine">
-                                <span>Reservar um voo</span>
-                            </div>
-                            <div class="tab-btn-reserve-miles">
-                                <img src="img/coins_active.png" alt="miles">
-                                <span>Reservar com milhas</span>
+        <section id="fly-section-container" class="fly-container">
+            <div class="fly-container-wrapper">
+                <div class="fly-container-wrapper-content">
+                    <div class="fly-container-content">
+                        <div class="fly-content-searchBox-container">
+                            <div class="fly-content-searchBox-container-content">
+                                <div class="fly-content-searchBox-tabs-container">
+                                    <div class="fly-content-searchBox-tabs-container-content">
+                                        <div class="fly-content-searchBox-tabs-container-content-wrapper">
+                                            <div class="fly-content-searchBox-tabs-content-wrapper">
+                                                <div class="fly-content-searchBox-tabs-wrapper">
+                                                    <div class="fly-content-searchBox-tabs">
+                                                        <div class="fly-content-searchBox-tab-reserve-fly">
+                                                            <img src="img/black-plane_active.png" alt="airplaine">
+                                                            <span>Reservar um voo</span>
+                                                        </div>
+                                                        <div class="fly-content-searchBox-tab-reserve-miles">
+                                                            <img src="img/coins_active.png" alt="miles">
+                                                            <span>Reservar com milhas</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="flyContainerSearchBox" class="fly-content-searchBox-inputs-container">
+                                    <form action="GET">
+                                        <div class="fly-content-searchBox-inputs-content">
+                                            <div class="fly-content-searchBox-inputs-wrapper-select">
+                                                <select class="fly-content-searchBox-inputs-wrapper-select-search-box"
+                                                name="" id="" aria-placeholder="">
+                                                    <option value="Ida e volta">Ida e volta</option>
+                                                    <option value="So volta">Só volta</option>
+                                                    <option value="Multiplos destinos">Múltiplos destinos</option>
+                                                </select>
+                                            </div>
+                                            <div class="fly-content-searchBox-inputs-wrapper-input">
+                                                <div class="fly-content-searchBox-inputs-wrapper">
+                                                    <div class="fly-content-searchBox-inputs-wrapper-input-takeOff-wrapper">
+                                                        <img src="img/flight.png" alt="take-off" class="fly-content-searchBox-inputs-wrapper-input-takeOff-icon">
+                                                        <div>
+                                                            <input type="text" value="Lisboa, Humberto Delgado Airport" class="fly-content-searchBox-inputs-wrapper-input-takeOff" placeholder="Partida de"/>
+                                                        </div>
+                                                        <img src="img/close.png" alt="cancel" class="fly-content-searchBox-inputs-wrapper-input-takeOff-cancel-icon">
+                                                    </div>
+                                                    <div class="fly-content-searchBox-inputs-wrapper-input-arrival-wrapper">
+                                                        <img src="img/arrivals.png" alt="arrivals" class="fly-content-searchBox-inputs-wrapper-input-arrival-icon">
+                                                        <div>
+                                                            <input type="text" value="Amesterdão, Amsterdam Schiphol Airport" class="fly-content-searchBox-inputs-wrapper-input-arrival"/>
+                                                        </div>
+                                                        <img src="img/close.png" alt="cancel" class="fly-content-searchBox-inputs-wrapper-input-arrival-cancel-icon">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div id="showMoreBtn" class="fly-content-searchBox-inputs-wrapper-button">
+                                                <div class="fly-content-searchBox-inputs-wrapper-button-show-more">
+                                                    <span>Continuar</span>
+                                                    <img src="img/down.png" alt="show more" class="fly-content-searchBox-inputs-wrapper-button-show-more-icon">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="fly-content-searchBox-extra-inputs">
+                                            <div class="fly-content-searchBox-extra-inputs-wrapper-datepicker">
+                                                <img src="img/calendar.png" alt="calendar" class="fly-content-searchBox-extra-inputs-datepicker-icon">
+                                                <div>
+                                                    <input type="text" class="fly-content-searchBox-extra-inputs-datepicker" placeholder="Datas de viagem"/>
+                                                </div>
+                                                <img src="img/close.png" alt="cancel" class="fly-content-searchBox-extra-inputs-datepicker-cancel-icon">
+                                            </div>
+                                            <div class="fly-content-searchBox-extra-inputs-wrapper-input-people">
+                                                <div>
+                                                    <input type="text" value="2 adultos" class="fly-content-searchBox-inputs-wrapper-input-takeOff" placeholder="Partida de"/>
+                                                </div>
+                                            </div>
+                                            <div class="fly-content-searchBox-extra-inputs-wrapper-typeFlight">
+                                                <select class="fly-content-searchBox-extra-inputs-wrapper-typeFlight-select"
+                                                    name="" id="" aria-placeholder="">
+                                                    <option value="Economy">Economy</option>
+                                                    <option value="Business">Business</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="fly-content-searchBox-search-container-wrapper">
+                                            <div class="fly-content-searchBox-search-switch-container">
+                                                <div class="fly-content-searchBox-search-switch-wrapper">
+                                                    <div class="fly-content-searchBox-search-switch-btn-div">
+                                                    </div>
+                                                    <div class="fly-content-searchBox-search-switch-handler-container">
+                                                        <div class="fly-content-searchBox-search-switch-handler">
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <label class="fly-content-searchBox-search-switch-label">Quero reservar com um contrato bluebiz ou empresarial</label>
+                                            </div>
+                                            <div class="fly-content-searchBox-search-container">
+                                                <button class="fly-content-searchBox-search-btn">
+                                                    Pesquisar voos
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="fly-container-search-box">
-                        <form action="" class="search-box-form">
-                            <div class="search-box-form-container">
-                                <div class="search-box-form-wrapper-select">
-                                    <div class="wrapper-select">
-                                        <select class="search-box-select" name="" id="" aria-placeholder="">
-                                            <option value="Ida e volta">Ida e volta</option>
-                                            <option value="So volta">Só volta</option>
-                                            <option value="Multiplos destinos">Múltiplos destinos</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="search-box-form-wrapper">
-                                    <div class="search-box-form-wrapper-inputs">
-                                        <div class="wrapper-input">
-                                            <img src="img/flight.png" alt="take-off" class="search-box-input-takeOff-icon">
-                                            <div>
-                                                <input type="text" value="Lisboa, Humberto Delgado Airport" class="search-box-input-takeOff" placeholder="Partida de" required/>
-                                            </div>
-                                            <img src="img/close.png" alt="cancel" class="search-box-input-cancel-icon">
-                                        </div>
-        
-                                        <div class="wrapper-input">
-                                            <img src="img/arrivals.png" alt="arrivals" class="search-box-input-arrival-icon">
-                                            <div>
-                                                <input type="text" value="" class="search-box-input-arrival" placeholder="Chegada a" required/>
-                                            </div>
-                                            <img src="img/close.png" alt="cancel" class="search-box-input-cancel-icon">
-                                        </div>
-                                    </div>
-                                </div>
-                                <button class="search-box-form-btn-show-more">
-                                    <span>Continuar</span>
-                                    <img src="img/down.png" alt="show more" class="search-box-form-btn-show-more-icon">
-                                </button>
+                        <div class="fly-content-background-container">
+                            <div class="fly-content-background-image-container">
+                                <img src="https://img.static-kl.com/transform/e1f75225-43df-4690-8e8f-56e8e1e716ac/?io=transform:fill,width:1440,height:480" alt="airplaine" class="fly-content-background-image">
                             </div>
-                        </form>
-                    </div>               
-                </div>
-            </div>
-            <div class="home-image-container">
-                <div class="background-image-container">
-                    <img src="https://img.static-kl.com/transform/e1f75225-43df-4690-8e8f-56e8e1e716ac/?io=transform:fill,width:1440,height:480" alt="airplaine">
-                </div>
-                <div class="text-container">
-                    <h2 class="text-container-title-h2">Tudo começa com um clique…</h2>
-                    <p class="text-container-description-p">Reserve agora para desfrutar das vantagens únicas da KLM. A sua próxima aventura aguarda por si!</p>
-                    <div class="text-container-link">
-                        <a href="/" class="text-container-link-a">
-                            <span>Reserve já</span>
-                            <img src="img/right-chevron.png" alt="arrow right">
-                        </a>
+                            <div class="fly-content-text-description-container">
+                                <div class="fly-content-text-description-container-content">
+                                    <h2 class="fly-content-text-description-content-title">Tudo começa com um clique…</h2>
+                                    <p class="fly-content-text-description-content-description">Reserve agora para desfrutar das vantagens únicas da KLM. A sua próxima aventura aguarda por si!</p>
+                                    <div class="fly-content-text-description-content-link">
+                                        <a href="/" class="fly-content-text-description-content-link-a">
+                                            <span>Reserve já</span>
+                                            <img src="img/right-chevron.png" alt="arrow right">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
         <!-- /FLY CONTAINER -->
-
+        
         <!-- HOME OFFERS CONTAINER -->
         <section class="home-offers-container">
             <div class="home-offers-block">
@@ -571,8 +653,8 @@
         <!-- /HOME SPECIAL OFFERS CONTAINER -->
     </main>
 
-    <!--BOTTOM MENU-->
-    <div class="fixed-bottom-menu">
+    <!-- BOTTOM MENU -->
+    <div style="display: none;" class="fixed-bottom-menu">
         <button class="menu-btn activeHome">
             <div class="menu-btn-icon">
                 <img src="img/home1.png" alt="home">
@@ -599,7 +681,7 @@
         </button>
     </div>
     
-
+    <!-- FOOTER -->
     <footer>
         <div class="home-footer-container">
             <div class="home-footer-container-content">
@@ -1026,51 +1108,40 @@
                         </div>
                     </div>
                 </div>
-                    
             </div>
-            <!-- <div class="home-footer-container-legal">
+
+            <div class="home-footer-container-legal">
                 <div class="home-footer-container-legal-content">
                     <ul class="home-footer-legal-content-list">
                         <li class="home-footer-legal-content-list-item">
                             <a href="/" class="home-footer-legal-content-list-item-link">Informações legais</a>
                         </li>
+                        <span>|</span>
                         <li class="home-footer-legal-content-list-item">
                             <a href="/" class="home-footer-legal-content-list-item-link">Declaração de privacidade</a>
                         </li>
+                        <span>|</span>
                         <li class="home-footer-legal-content-list-item">
                             <a href="/" class="home-footer-legal-content-list-item-link">Declaração de acessibilidade</a>
                         </li>
+                        <span>|</span>
                         <li class="home-footer-legal-content-list-item">
                             <a href="/" class="home-footer-legal-content-list-item-link">Livro de reclamações</a>
                         </li>
+                        <span>|</span>
                         <li class="home-footer-legal-content-list-item">
                             <a href="/" class="home-footer-legal-content-list-item-link">© 2024 KLM</a>
                         </li>
+                        <span>|</span>
                         <li class="home-footer-legal-content-list-item">
                             <a href="/" class="home-footer-legal-content-list-item-link">Definições de cookies</a>
                         </li>
                     </ul>
                 </div>
-            </div> -->
-            <div class="home-footer-container-legal">
-                <div class="home-footer-container-legal-content">
-                    <ul>
-                        <li><a href="#">Informações legais</a></li>
-                        <span>|</span>
-                        <li><a href="#">Declaração de privacidade</a></li>
-                        <span>|</span>
-                        <li><a href="#">Declaração de acessibilidade</a></li>
-                        <span>|</span>
-                        <li><a href="#">Livro de reclamações</a></li>
-                        <span>|</span>
-                        <li>© 2024 KLM</li>
-                        <span>|</span>
-                        <li><a href="#">Definição de cookies</a></li>
-                    </ul>
-                </div>
             </div>
-
         </div>
     </footer>
+
+    <script src="logica.js"></script>
 </body>
 </html>

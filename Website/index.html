@@ -15,10 +15,11 @@
                 <div class="header-logo-large">
                     <div>
                         <div class="header-sidenav-container">
-                            <button class="header-sidenav-btn-menu"></button>
+                            <button id="sidenavBtnMenu" class="header-sidenav-btn-menu"></button>
                         </div>
                         <div class="header-logo-container">
                             <img id="header-logo-icon" class="header-logo-icon" src="https://www.static-kl.com/assets/components/38.0.0/kl/logo/kl-logo.svg" alt="logo"/>
+                            <img id="header-logo-icon-small" class="header-logo-icon-small" src="img/logoklm.png" alt="logo"/>
                         </div>
                         <div>
                             <button class="header-actions-search-btn">
@@ -50,11 +51,6 @@
                         <li class="navbar-ul-li"><button class="navbar-btn-myTrip">A Minha Viagem</button></li>
                         <li class="navbar-ul-li"><button class="navbar-btn-checkIn">Check-in</button></li>
                         <li class="navbar-ul-li"><button class="navbar-btn-information">Informações</button></li>
-                        <!-- <li class="navbar-ul-li">
-                            <a href="flightstatus.html">
-                                <button class="navbar-btn-flightStatus">Estado do voo</button>
-                            </a>
-                        </li> -->
                     </ul>
                 </nav>
             </div>
@@ -101,6 +97,113 @@
         <!-- /HEADER -->
     </div>
 
+    <div id="flyStatusContainer" class="main-container-flight-status">
+        <div class="main-container-flight-status-content">
+            <div class="main-container-flight-status-content-container">
+                <h2 class="main-container-flight-status-content-title">Pesquisar um voo</h2>
+                <div class="main-container-flight-status-close-btn-container">
+                    <button id="flyStatusContainerCloseBtn" class="main-container-flight-status-close-btn">
+                        <img src="./img/close.png" alt="" class="main-container-flight-status-close-btn-icon">
+                    </button>
+                </div>
+            </div>
+    
+            <!-- SAVE FLIGHTS -->
+            <section class="flight-status-search-save-flight">
+                <div class="flight-status-search-save-flight-card">
+                    <div class="flight-status-search-save-flight-content">
+                        <div class="flight-status-search-save-flight-container">
+                            <div class="flight-status-search-save-flight-description-content">
+                                <h2 class="flight-status-search-save-flight-description-title-content">Pesquisar um voo</h2>
+                            </div>
+                            <button class="flight-status-search-save-flight-saved-btn">Guardado (0/6)</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- FIM SAVE FLIGHTS -->
+    
+            <!--SHOW STATUS-->
+            <div id="flyStatusInfoContainer" class="flight-info-wrapper">
+                <div class="flight-info-section">
+                    <!-- Primeiro voo -->
+                    <div class="flight-info-card">
+                        <div class="flights-info-card-grid-container">
+                            <div class="logo-container">
+                                <img src="img/logoklm.png" alt="KLM Cityhopper">
+                            </div>
+                            <div class="status-container">
+                                <span id="flight-status1" class="flight-status"></span>
+                            </div>
+                            <div class="flight-number-container">
+                                <h3 id="flight-number1"></h3>
+                            </div>
+                            <div class="flight-departure">
+                                <div id="flight-hour1" class="departure"></div>
+                            </div>
+                            <div class="grid-item"></div>
+                            <div class="flight-arrival">
+                                <div id="arrival1" class="arrival"></div>
+                            </div>
+                            <div class="flight-origin">
+                                <p id="origin1" class="origin"></p>
+                            </div>
+                            <div class="flight-duration">
+                                <span class="durationLabel">Duração </span>
+                                <span id="duration1" class="duration"></span>
+                            </div>
+                            <div class="flight-destination">
+                                <p id="destination1" class="destination"></p>
+                            </div>
+                        </div>
+                        
+                        <div class="more-options-container">
+                            <button class="more-options-save-btn">Guardar</button>
+                            <button class="more-options-show-more-btn">Mostrar mais</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Segundo voo -->
+                    <div class="flight-info-card">
+                        <div class="flights-info-card-grid-container">
+                            <div class="logo-container">
+                                <img src="img/logoklm.png" alt="KLM Cityhopper">
+                            </div>
+                            <div class="status-container">
+                                <span id="flight-status2" class="flight-status"></span>
+                            </div>
+                            <div class="flight-number-container">
+                                <h3 id="flight-number2"></h3>
+                            </div>
+                            <div class="flight-departure">
+                                <div id="flight-hour2" class="departure"></div>
+                            </div>
+                            <div class="grid-item"></div>
+                            <div class="flight-arrival">
+                                <div id="arrival2" class="arrival"></div>
+                            </div>
+                            <div class="flight-origin">
+                                <p id="origin2" class="origin"></p>
+                            </div>
+                            <div class="flight-duration">
+                                <span class="durationLabel">Duração </span>
+                                <span id="duration2" class="duration"></span>
+                            </div>
+                            <div class="flight-destination">
+                                <p id="destination2" class="destination"></p>
+                            </div>
+                        </div>
+                        
+                        <div class="more-options-container">
+                            <button class="more-options-save-btn">Guardar</button>
+                            <button class="more-options-show-more-btn">Mostrar mais</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <main class="main-container">
         <!-- FLY CONTAINER -->
         <section id="fly-section-container" class="fly-container">
@@ -115,13 +218,17 @@
                                             <div class="fly-content-searchBox-tabs-content-wrapper">
                                                 <div class="fly-content-searchBox-tabs-wrapper">
                                                     <div class="fly-content-searchBox-tabs">
-                                                        <div class="fly-content-searchBox-tab-reserve-fly">
-                                                            <img src="img/black-plane_active.png" alt="airplaine">
+                                                        <div id="tabReserveFly" class="fly-content-searchBox-tab-reserve-fly">
+                                                            <img id="tabReserveFly-icon" src="img/black-plane_active.png" alt="airplaine">
                                                             <span>Reservar um voo</span>
                                                         </div>
-                                                        <div class="fly-content-searchBox-tab-reserve-miles">
+                                                        <!-- <div class="fly-content-searchBox-tab-reserve-miles">
                                                             <img src="img/coins_active.png" alt="miles">
                                                             <span>Reservar com milhas</span>
+                                                        </div> -->
+                                                        <div id="tabFlyStatus" class="fly-content-searchBox-tab-fly-status">
+                                                            <img id="tabFlyStatus-icon" src="img/travel.png" alt="miles">
+                                                            <span>Estado de voo</span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -130,13 +237,13 @@
                                     </div>
                                 </div>
                                 <div id="flyContainerSearchBox" class="fly-content-searchBox-inputs-container">
-                                    <form action="GET">
+                                    <!-- FORM TO RESERVE FLY TAB -->
+                                    <form id="formReserveFly" action="">
                                         <div class="fly-content-searchBox-inputs-content">
                                             <div class="fly-content-searchBox-inputs-wrapper-select">
-                                                <select class="fly-content-searchBox-inputs-wrapper-select-search-box"
-                                                name="" id="" aria-placeholder="">
+                                                <select class="fly-content-searchBox-inputs-wrapper-select-search-box" name="" id="" aria-placeholder="">
                                                     <option value="Ida e volta">Ida e volta</option>
-                                                    <option value="So volta">Só volta</option>
+                                                    <option value="So ida">Só ida</option>
                                                     <option value="Multiplos destinos">Múltiplos destinos</option>
                                                 </select>
                                             </div>
@@ -145,16 +252,16 @@
                                                     <div class="fly-content-searchBox-inputs-wrapper-input-takeOff-wrapper">
                                                         <img src="img/flight.png" alt="take-off" class="fly-content-searchBox-inputs-wrapper-input-takeOff-icon">
                                                         <div>
-                                                            <input type="text" value="Lisboa, Humberto Delgado Airport" class="fly-content-searchBox-inputs-wrapper-input-takeOff" placeholder="Partida de"/>
+                                                            <input type="text" id="inputTakeOffAirport" value="Lisboa, Humberto Delgado Airport" class="fly-content-searchBox-inputs-wrapper-input-takeOff" placeholder="Partida de"/>
                                                         </div>
-                                                        <img src="img/close.png" alt="cancel" class="fly-content-searchBox-inputs-wrapper-input-takeOff-cancel-icon">
+                                                        <img src="img/close.png" id="clearInputTakeOffAirport" alt="cancel" class="fly-content-searchBox-inputs-wrapper-input-takeOff-cancel-icon">
                                                     </div>
                                                     <div class="fly-content-searchBox-inputs-wrapper-input-arrival-wrapper">
                                                         <img src="img/arrivals.png" alt="arrivals" class="fly-content-searchBox-inputs-wrapper-input-arrival-icon">
                                                         <div>
-                                                            <input type="text" value="Amesterdão, Amsterdam Schiphol Airport" class="fly-content-searchBox-inputs-wrapper-input-arrival"/>
+                                                            <input type="text" id="inputArrivalAirport" value="Amesterdão, Amsterdam Schiphol Airport" class="fly-content-searchBox-inputs-wrapper-input-arrival" placeholder="Chegada a"/>
                                                         </div>
-                                                        <img src="img/close.png" alt="cancel" class="fly-content-searchBox-inputs-wrapper-input-arrival-cancel-icon">
+                                                        <img src="img/close.png" id="clearInputArrivalAirport" alt="cancel" class="fly-content-searchBox-inputs-wrapper-input-arrival-cancel-icon">
                                                     </div>
                                                 </div>
                                             </div>
@@ -206,6 +313,44 @@
                                             </div>
                                         </div>
                                     </form>
+                                    <!-- /FORM TO RESERVE FLY TAB -->
+
+                                    <!-- FORM TO FLY STATUS TAB -->
+                                    <form id="formFlyStatus">
+                                        <div class="fly-content-searchBox-tab-fly-status-content">
+                                            <div class="fly-content-searchBox-tab-fly-status-wrapper-select">
+                                                <select class="fly-content-searchBox-tab-fly-status-select" name="flyStatusType" id="flyStatusType">
+                                                    <option value="ida" selected>Voo de ida</option>
+                                                    <option value="regresso">Voo de regresso</option>
+                                                </select>
+                                            </div>
+                                            <div class="fly-content-searchBox-tab-fly-status-wrapper-datepicker">
+                                                <div>
+                                                    <input type="date" id="flyStatusDatePicker" name="flyStatusDatePicker" 
+                                                           class="fly-content-searchBox-extra-inputs-datepicker" required/>
+                                                </div>
+                                            </div>
+                                            <div class="fly-content-searchBox-tab-fly-status-wrapper-airport">
+                                                <div class="fly-content-searchBox-tab-fly-status-wrapper">
+                                                    <div class="fly-content-searchBox-tab-fly-status-wrapper-airport-input">
+                                                        <img src="img/flight.png" alt="take-off" class="fly-content-searchBox-inputs-wrapper-input-takeOff-icon">
+                                                        <div>
+                                                            <input type="text" name="flyStatusAirport" id="flyStatusAirport" value="Lisboa, Humberto Delgado Airport" 
+                                                                   class="fly-content-searchBox-inputs-wrapper-input-takeOff" placeholder="Aeroporto de partida" required/>
+                                                        </div>
+                                                        <img src="img/close.png" alt="cancel" id="clearInputAirport"
+                                                             class="fly-content-searchBox-inputs-wrapper-input-takeOff-cancel-icon">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="fly-content-searchBox-tab-fly-status-search-container">
+                                                <button id="flyStatusSearchBtn" class="fly-content-searchBox-tab-fly-status-search-btn">
+                                                    Pesquisar voos
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <!-- /FORM TO FLY STATUS TAB -->
                                 </div>
                             </div>
                         </div>
@@ -654,7 +799,7 @@
     </main>
 
     <!-- BOTTOM MENU -->
-    <div style="display: none;" class="fixed-bottom-menu">
+    <div class="fixed-bottom-menu">
         <button class="menu-btn activeHome">
             <div class="menu-btn-icon">
                 <img src="img/home1.png" alt="home">
@@ -688,10 +833,11 @@
                 <!-- CONTACTE-NOS -->
                 <div class="home-footer-content-nav">
                     <div id="home-footer-content-nav-list">
-                        <div class="home-footer-content-nav-list-title">
+                        <div id="titleContact" class="home-footer-content-nav-list-title">
                             <h4>Contacte-nos</h4>
+                            <img id="openArrowContact" src="img/down-arrow.png" alt="open" class="home-footer-content-nav-list-title-icon">
                         </div>
-                        <div class="home-footer-content-nav-list-content">
+                        <div id="contentContact" class="home-footer-content-nav-list-content">
                             <ul>
                                 <li>
                                     <a href="/" class="home-footer-content-nav-list-content-item">
@@ -726,10 +872,11 @@
                 <!-- SOBRE A KLM -->
                 <div class="home-footer-content-nav">
                     <div id="home-footer-content-nav-list">
-                        <div class="home-footer-content-nav-list-title">
+                        <div id="titleAbout" class="home-footer-content-nav-list-title">
                             <h4>Sobre a KLM</h4>
+                            <img id="openArrowAbout" src="img/down-arrow.png" alt="open" class="home-footer-content-nav-list-title-icon">
                         </div>
-                        <div class="home-footer-content-nav-list-content">
+                        <div id="contentAbout" class="home-footer-content-nav-list-content">
                             <ul>
                                 <li>
                                     <a href="/" class="home-footer-content-nav-list-content-item">
@@ -768,10 +915,11 @@
                 <!-- OFERTAS -->
                 <div class="home-footer-content-nav">
                     <div id="home-footer-content-nav-list">
-                        <div class="home-footer-content-nav-list-title">
+                        <div id="titleOffers" class="home-footer-content-nav-list-title">
                             <h4>Ofertas</h4>
+                            <img id="openArrowOffers" src="img/down-arrow.png" alt="open" class="home-footer-content-nav-list-title-icon">
                         </div>
-                        <div class="home-footer-content-nav-list-content">
+                        <div id="contentOffers" class="home-footer-content-nav-list-content">
                             <ul>
                                 <li>
                                     <a href="/" class="home-footer-content-nav-list-content-item">
@@ -790,10 +938,11 @@
                 <!-- MAIS SOBRE A KLM -->
                 <div class="home-footer-content-nav">
                     <div id="home-footer-content-nav-list">
-                        <div class="home-footer-content-nav-list-title">
+                        <div id="titleMoreAbout" class="home-footer-content-nav-list-title">
                             <h4>Mais sobre KLM</h4>
+                            <img id="openArrowMoreAbout" src="img/down-arrow.png" alt="open" class="home-footer-content-nav-list-title-icon">
                         </div>
-                        <div class="home-footer-content-nav-list-content">
+                        <div id="contentMoreAbout" class="home-footer-content-nav-list-content">
                             <ul>
                                 <li>
                                     <a href="/" class="home-footer-content-nav-list-content-item">
@@ -817,10 +966,11 @@
                 <!-- DESCARREGAR A APP -->
                 <div class="home-footer-content-nav">
                     <div id="home-footer-content-nav-list">
-                        <div class="home-footer-content-nav-list-title">
+                        <div id="titleDownload" class="home-footer-content-nav-list-title">
                             <h4>Descarregar a app</h4>
+                            <img id="openArrowDownload" src="img/down-arrow.png" alt="open" class="home-footer-content-nav-list-title-icon">
                         </div>
-                        <div class="home-footer-content-nav-list-content">
+                        <div id="contentDownload" class="home-footer-content-nav-list-content">
                             <ul>
                                 <li>
                                     <img src="https://img.static-kl.com/transform/f868db2b-5184-4c75-bea0-4eefa8d4fce7/" alt="Download in App Store" class="home-footer-content-nav-list-image">
@@ -836,10 +986,11 @@
                 <!-- WEBSITES RELACIONADOS -->
                 <div class="home-footer-content-nav">
                     <div id="home-footer-content-nav-list">
-                        <div class="home-footer-content-nav-list-title">
+                        <div id="titleWebRelated" class="home-footer-content-nav-list-title">
                             <h4>Websites relacionados</h4>
+                            <img id="openArrowWebRelated" src="img/down-arrow.png" alt="open" class="home-footer-content-nav-list-title-icon">
                         </div>
-                        <div class="home-footer-content-nav-list-content">
+                        <div id="contentWebRelated" class="home-footer-content-nav-list-content">
                             <ul>
                                 <li>
                                     <a href="/" class="home-footer-content-nav-list-content-item">
@@ -878,10 +1029,11 @@
                 <!-- GUIAS DE VIAGEM -->
                 <div class="home-footer-content-nav">
                     <div id="home-footer-content-nav-list">
-                        <div class="home-footer-content-nav-list-title">
+                        <div id="titleTravelGuide" class="home-footer-content-nav-list-title">
                             <h4>Guias de viagem</h4>
+                            <img id="openArrowTravelGuide" src="img/down-arrow.png" alt="open" class="home-footer-content-nav-list-title-icon">
                         </div>
-                        <div class="home-footer-content-nav-list-content">
+                        <div id="contentTravelGuide" class="home-footer-content-nav-list-content">
                             <ul>
                                 <li>
                                     <a href="/" class="home-footer-content-nav-list-content-item">
@@ -940,10 +1092,11 @@
                 <!-- TOP DESTINOS -->
                 <div class="home-footer-content-nav">
                     <div id="home-footer-content-nav-list">
-                        <div class="home-footer-content-nav-list-title">
+                        <div id="titleTopDestinations" class="home-footer-content-nav-list-title">
                             <h4>Top destinos</h4>
+                            <img id="openArrowTopDestinations" src="img/down-arrow.png" alt="open" class="home-footer-content-nav-list-title-icon">
                         </div>
-                        <div class="home-footer-content-nav-list-content">
+                        <div id="contentTopDestinations" class="home-footer-content-nav-list-content">
                             <ul>
                                 <li>
                                     <a href="/" class="home-footer-content-nav-list-content-item">
@@ -1002,10 +1155,11 @@
                 <!-- PAÍSES MAIS PROCURADOS -->
                 <div class="home-footer-content-nav">
                     <div id="home-footer-content-nav-list">
-                        <div class="home-footer-content-nav-list-title">
+                        <div id="titleSearchedContries" class="home-footer-content-nav-list-title">
                             <h4>Países mais procurados</h4>
+                            <img id="openArrowSearchedContries" src="img/down-arrow.png" alt="open" class="home-footer-content-nav-list-title-icon">
                         </div>
-                        <div class="home-footer-content-nav-list-content">
+                        <div id="contentSearchedContries" class="home-footer-content-nav-list-content">
                             <ul>
                                 <li>
                                     <a href="/" class="home-footer-content-nav-list-content-item">
@@ -1059,10 +1213,11 @@
                 <!-- DESTINOS POPULARES -->
                 <div class="home-footer-content-nav">
                     <div id="home-footer-content-nav-list">
-                        <div class="home-footer-content-nav-list-title">
+                        <div id="titlePopularDestinations" class="home-footer-content-nav-list-title">
                             <h4>Destinos populares</h4>
+                            <img id="openArrowPopularDestinations" src="img/down-arrow.png" alt="open" class="home-footer-content-nav-list-title-icon">
                         </div>
-                        <div class="home-footer-content-nav-list-content">
+                        <div id="contentPopularDestinations" class="home-footer-content-nav-list-content">
                             <ul>
                                 <li>
                                     <a href="/" class="home-footer-content-nav-list-content-item">

@@ -27,6 +27,8 @@ var inputTakeOffAirport = document.getElementById('inputTakeOffAirport');
 var clearInputTakeOffAirport = document.getElementById('clearInputTakeOffAirport');
 var clearInputArrivalAirport = document.getElementById('clearInputArrivalAirport');
 var inputArrivalAirport = document.getElementById('inputArrivalAirport');
+var saveButtons = document.querySelectorAll('.more-options-save-btn');
+var statusButton = document.querySelector('.flight-status-search-save-flight-saved-btn');
 
 // GET ACTUAL DATE
 function setTodayDate() {
@@ -153,8 +155,13 @@ formFlyStatus.addEventListener('submit', function (event) {
 
         // SECOND FLIGHT
         flightStatus2 = flightStatus1;
-        flightHour2 = (flightHour1 === "10:05") ? "18:05" : "10:05";
-        arrivalHour2 = (flightHour2 === "18:05") ? "19:05" : "11:05";
+        if (flightHour1 === "10:05") {
+            flightHour2 = "18:05";
+            arrivalHour2 = "19:05";
+        } else {
+            flightHour2 = "20:10";
+            arrivalHour2 = "21:10";
+        }
 
     } else if (flyStatusTypeValue === "regresso") {
         origin = "Budapeste";
@@ -170,8 +177,13 @@ formFlyStatus.addEventListener('submit', function (event) {
 
         // SECOND FLIGHT
         flightStatus2 = flightStatus1;
-        flightHour2 = (flightHour1 === "10:05") ? "18:05" : "10:05";
-        arrivalHour2 = (flightHour2 === "18:05") ? "19:05" : "11:05";
+        if (flightHour1 === "10:05") {
+            flightHour2 = "18:05";
+            arrivalHour2 = "19:05";
+        } else {
+            flightHour2 = "20:10";
+            arrivalHour2 = "21:10";
+        }
     }
 
     document.getElementById("flight-number1").textContent = "TP1";
@@ -207,6 +219,21 @@ clearInputTakeOffAirport.addEventListener('click', function(){
 
 clearInputArrivalAirport.addEventListener('click', function(){
     inputArrivalAirport.value = "";
+});
+
+
+//UPDATE SAVED FLIGHTS NUMBER
+saveButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        let current = parseInt(statusButton.getAttribute('data-current')); //READ CURRENT NUMBER
+        const max = parseInt(statusButton.getAttribute('data-max')); //READ MAX VALUE 
+
+        if (current < max) {
+            current++;
+            statusButton.setAttribute('data-current', current); //UPDATE DATA-CURRENT TO CURRENT NUMBER
+            statusButton.textContent = `Guardado (${current}/${max})`; //UPDATE TEXT 
+        }
+    });
 });
 
 

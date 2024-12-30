@@ -225,7 +225,7 @@ clearInputArrivalAirport.addEventListener('click', function(){
 //UPDATE SAVED FLIGHTS NUMBER
 saveButtons.forEach(button => {
     button.addEventListener('click', () => {
-        let current = parseInt(statusButton.getAttribute('data-current')); //READ CURRENT NUMBER
+        var current = parseInt(statusButton.getAttribute('data-current')); //READ CURRENT NUMBER
         const max = parseInt(statusButton.getAttribute('data-max')); //READ MAX VALUE 
 
         if (current < max) {
